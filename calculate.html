@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<style>
+			.menu{
+				width: 100%;
+				height: 50px;
+				padding: 10px 5px;
+				#border: 1px solid red;
+				
+			}
+			
+			.company{
+				
+				#border: 1px solid black;
+				float: left;
+				padding-left: 8px;
+			}
+			
+			.calculate{
+				
+				float: right;
+				padding-right: 20px;
+			}
+			
+			.insured{
+				
+				float: right;
+				padding-right: 20px;
+			}
+			
+			.item{
+				width: 100%;
+				height: 600px;
+				margin-top:15px;
+				font-size: 14px;
+				#border: 1px solid red;
+			}
+		
+			.item_info{
+				
+				width: 100%;
+				height: 50px;
+				padding: 10px;
+				#border: 1px solid red;
+			}
+			
+			.line_1{
+				margin-top: 50px;
+    			height:1px;
+				width:100%;
+				background:#3F3F3F;
+    		}
+    		
+    		.mui-checkbox{
+    			
+    			float: right;
+    			#margin-right: 30px;
+    		}
+    		
+
+    		
+    		.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+    			color: #dd524d;
+    		}
+    		
+    		.mui-checkbox label, .mui-radio label{
+    			
+    			padding-right:39px;
+    			padding-top:15px;
+    		}
+    		
+    		.cpic_img{
+    			
+/*    			width: 20px;
+    			height: 10px;*/
+    			
+    		}
+    		
+    		
+			
+			
+		</style>
+		
+		<!-- 主界面不动、菜单移动 -->
+		<!-- 侧滑导航根容器 -->
+		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
+		  <!-- 菜单容器 -->
+		  <aside class="mui-off-canvas-left" id="offCanvasSide">
+		    <div class="mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		        <!-- 菜单具体展示内容 -->
+		        
+		      </div>
+		    </div>
+		  </aside>
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap">
+		    <!-- 主页面标题 -->
+		    <header class="mui-bar mui-bar-nav">
+		        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		        <h1 class="mui-title">选择保险公司</h1>
+		    </header>
+		    
+		    <div class="mui-content mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		        <!-- 主界面具体展示内容 -->
+		        
+		       		<div class="mui-scroll menu">
+		   
+		       			<span class="company">保险公司</span>
+		       			<span class="calculate">核保</span>
+		       			<span class="insured">报价</span>
+		       		</div>
+		       		<div class="line_1"></div>
+		       		<div class="item">
+		        		<div class="item_info">
+			        		<span class="item_ins">太平洋车险</span>
+							<img src="images/cpic_logo.png" class="item_ins cpic_img"/>
+								<div class="mui-input-row mui-checkbox">
+	                            	<label></label>
+    								<input name="checkbox1" value="Item 1" type="checkbox" checked>
+	                        	</div>
+	                        	<div class="mui-input-row mui-checkbox">
+	                           		<label></label>
+    								<input name="checkbox1" value="Item 1" type="checkbox" checked>
+	                        	</div>
+						</div>
+						<!--<div class="line_1"></div>-->
+					</div>
+		       		
+		       		
+		        
+		        
+		        
+		      </div>
+		    </div>  
+		    <div class="mui-off-canvas-backdrop"></div>
+		  </div>
+		</div>
+		
+		
+		
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		
+		<style>
+			.notice{
+				position: relative;
+				width: 100%;
+				margin-top: 20px;
+				height: 50px;
+				background-color: #FFFFFF;
+			}
+			
+			.mui-icon-chat{
+				margin-left: 32px;
+				margin-top: 15px;
+			}
+			.notice-font{
+				font-size: 15px;
+				font-family: simhei;
+				padding-left: 20px;
+				margin-left: 15px;
+			}
+			
+			.persion_info{
+				width: 100%;
+				height: 100px;
+				margin-top: 10px;
+				background-color: #FFFFFF;
+				margin-top: 20px;
+
+			}
+			#divcss5{ 
+				margin-top: 10px;
+				} 
+			#divcss5 img{ 
+					border-radius:50%;
+					width: 50px;
+					height: 55px;
+					margin-left: 30px;
+					margin-top: 20px;
+				} 
+			.user-info{
+				
+				padding: 30px 100px;
+				font-size: 15px;
+				margin-top: -90px;
+			}	
+				
+			.username{
+				font-family:"微软雅黑";
+			}		
+				
+			.integral_info{
+				font-family: "微软雅黑";
+			}	
+			
+			.mui-btn{
+				float: right;
+				margin-right: 55px;
+				margin-top: -65px;
+				height: 30px;
+				
+			}
+
+			.mui-btn .mui-icon{
+				font-size: 16px;
+			}
+
+			.mui-grid-view.mui-grid-9{
+				margin-top: 20px;
+				background-color: #FFFFFF;
+			}
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+				border-right:3px solid #eee;
+				border-bottom:3px solid #eee;
+			}
+
+		</style>
+	</head>
+
+	<body>
+        <!-- 顶部图片轮播 -->
+        <div id="slider" class="mui-slider" >
+          <div class="mui-slider-group mui-slider-loop">
+            <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+            <div class="mui-slider-item mui-slider-item-duplicate">
+              <a href="#">
+                <img src="http://www.epicc.com.cn/sybanner/wnqqq/201802/W020180202672995614140.jpg">
+              </a>
+            </div>
+            <!-- 第一张 -->
+            <div class="mui-slider-item">
+              <a href="#">
+                <img src="http://www.epicc.com.cn/sybanner/wnqqq/201802/W020180202672995614140.jpg">
+              </a>
+            </div>
+            <!-- 第二张 -->
+            <div class="mui-slider-item">
+              <a href="#">
+                <img src="http://www.epicc.com.cn/sybanner/wnqqq/201802/W020180202672995614140.jpg">
+              </a>
+            </div>
+
+            <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+        	<div class="mui-slider-item mui-slider-item-duplicate">
+              <a href="#">
+                <img src="http://www.epicc.com.cn/sybanner/wnqqq/201802/W020180202672995614140.jpg">
+              </a>
+            </div>
+        </div>
+          <div class="mui-slider-indicator">
+            <div class="mui-indicator mui-active"></div>
+            <div class="mui-indicator"></div>
+          </div>
+        </div>
+        
+        <!-- 用户提示信息 -->
+        <div class="notice">
+        	<span class="mui-icon mui-icon-chat"><font  class="notice-font">恭喜：车牌川AZ12312312</font></span>
+        </div>
+        
+       	<!-- 欢迎信息 -->
+        <div class="persion_info">
+        	<a href="#">
+                <div id="divcss5"><img src="images/head.png" /></div> 
+           </a>
+            <div class="user-info">
+                	<span class="username">梁煜麟</span>
+                	<span>欢迎你！</span></br>
+               		<span class="integral_info">我的积分：<span style="color: red;">0</span></span>
+        	</div>
+			<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">
+				<span class="mui-icon mui-icon-compose">签到</span>
+			</button>
+        </div>
+        
+        
+        
+        <!-- 中部菜单选项 -->
+       	<ul class="mui-table-view mui-grid-view mui-grid-9">
+           	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id ='1'>
+           	    <a href="#">
+           	        <span class="mui-icon mui-icon-home"></span>
+           	        <div class="mui-media-body">主页</div>
+           	    </a>
+           	</li>
+           	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id ='2'>
+           	    <a href="#">
+           	        <span class="mui-icon mui-icon-email"><span class="mui-badge mui-badge-red">5</span></span>
+           	        <div class="mui-media-body">车险出单</div>
+           	    </a>
+           	</li>
+           	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id ='3' >
+           	    <a href="#">
+           	        <span class="mui-icon mui-icon-chatbubble"></span>
+           	        <div class="mui-media-body">非车出单</div>
+           	    </a>
+           	</li>
+           	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id ='4'>
+           	    <a href="#">
+           	        <span class="mui-icon mui-icon-location"></span>
+           	        <div class="mui-media-body">积分商城</div>
+           	    </a>
+           	</li>
+           	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id ='5'>
+           	    <a href="#">
+           	        <span class="mui-icon mui-icon-search"></span>
+           	        <div class="mui-media-body">我的客户</div>
+           	    </a>
+           	</li>
+           	<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" id ='6'>
+           	    <a href="#">
+           	        <span class="mui-icon mui-icon-phone"></span>
+           	        <div class="mui-media-body">积分管理</div>
+           	    </a>
+           	</li>
+       	</ul>
+		
+		
+		
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		
+	
+		
+		
+	</body>
+
+</html>
