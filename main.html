@@ -70,26 +70,26 @@
                 <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
                 <div class="mui-slider-item mui-slider-item-duplicate">
                   <a href="#">
-                    <img src="http://www.epicc.com.cn/sybanner/wnqqq/201802/W020180202672995614140.jpg">
+                    <img src="./images/1.png">
                   </a>
                 </div>
                 <!-- 第一张 -->
                 <div class="mui-slider-item">
                   <a href="#">
-                    <img src="http://www.epicc.com.cn/sybanner/wnqqq/201802/W020180202672995614140.jpg">
+                    <img src="./images/1.png">
                   </a>
                 </div>
                 <!-- 第二张 -->
                 <div class="mui-slider-item">
                   <a href="#">
-                    <img src="http://www.epicc.com.cn/sybanner/wnqqq/201802/W020180202672995614140.jpg">
+                    <img src="./images/1.png">
                   </a>
                 </div>
 
                 <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
             	<div class="mui-slider-item mui-slider-item-duplicate">
                   <a href="#">
-                    <img src="http://www.epicc.com.cn/sybanner/wnqqq/201802/W020180202672995614140.jpg">
+                    <img src="./images/1.png">
                   </a>
                 </div>
             </div>
@@ -146,7 +146,7 @@
 							</form>
 
 							<div class="mui-content-padded">
-								<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block">下一步</button>
+								<button type="button_vin" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block" disabled="disabled" id="button_vin">下一步</button>
 							</div>
 							<div class="mui-content-padded oauth-area">
 							</div>
@@ -168,29 +168,56 @@
     
     <script type="text/javascript">
     	
-    	var license = document.getElementById('license')
-    	
-    	document.getElementById("license").addEventListener('input',function(){
 
-		if(this.value.length > 6 && this.value.length < 9 )
-		{
-			document.getElementById("button_license").disabled=false;
-		}
-		else
-		{
-			document.getElementById("button_license").disabled=true;
-		}
-	
-});
-    	var button_license = document.getElementById('button_license')
-		button_license.addEventListener("tap",function () {
-		  	
-		  	mui.openWindow({
-		  				id:'detail',
-						url:'./detail.html',
-			});
-		  	
-		});
+    	check_length('license','button_license');
+    	
+    	check_length('vin','button_vin');
+    	
+    	function check_length(id,button_id)
+    	{
+    			if(button_id == 'button_license')
+    			{
+	    			document.getElementById(id).addEventListener('input',function(){
+						if(this.value.length > 6 && this.value.length < 9 )
+						{
+							document.getElementById(button_id).disabled=false;
+						}
+						else
+						{
+							document.getElementById(button_id).disabled=true;
+						}
+						button_license.addEventListener("tap",function () {
+						  	mui.openWindow({
+						  				id:'detail',
+										url:'./detail.html',
+							});
+						});
+					});
+    			}
+    			else if(button_id == 'button_vin')
+    			{
+    				document.getElementById(id).addEventListener('input',function(){
+						if(this.value.length == 17)
+						{
+							document.getElementById(button_id).disabled=false;
+						}
+						else
+						{
+							document.getElementById(button_id).disabled=true;
+						}
+						button_vin.addEventListener("tap",function () {
+						  	mui.openWindow({
+						  				id:'detail',
+										url:'./detail.html',
+							});
+						});
+					});
+    			}
+    	}
+    	
+    	
+
+
 		
 		
 		mui(document.body).on('tap', '.mui-btn', function(e) {
