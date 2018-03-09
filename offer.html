@@ -325,7 +325,7 @@
 		        			<span id="check_time">2018-07-30</span>
 		        		</div>
 		        		<div class="mui-switch mui-switch-mini" id="mySwitch">
-						  <div class="mui-switch-handle"></div>
+						  	<div class="mui-switch-handle"></div>
 						</div>
 		        		
 		        	</div>
@@ -338,7 +338,7 @@
 		        			<img src="./images/calendar.png"  id="calendar" class="calendar"/>
 		        			<span id="jiaoqiang_time">2018-06-03</span>
 		        		</div>
-		        		<div class="mui-switch mui-switch-mini" id="jiaoqiang">
+		        		<div class="mui-switch mui-switch-mini jiaoqiang" id="jiaoqiang">
 						  <div class="mui-switch-handle"></div>
 						</div>
 		        		
@@ -358,7 +358,7 @@
 		        	
 		        	<div class="item">
 		        		<div class="item_info">
-			        		<span class="item_ins">机动车损失保险</span>
+			        		<span class="item_ins">机动车损失险</span>
 
 	                        <span class="radio_inline mui-checkbox">
 	                            <input name="radio1" type="checkbox" id="tvdi_ndsi">
@@ -373,7 +373,7 @@
 						
 						<div class="line_1"></div>
 						<div class="item_info">
-			        		<span class="item_ins">第三者责任保险</span>
+			        		<span class="item_ins">三者责任保险</span>
 			        		
 			        		
 			        		<span class="radio_inline mui-checkbox">
@@ -595,7 +595,7 @@
 						    '<div class="layui-tab-item layui-show">'+
 							    '<div class="offer_models">'+
 							    	
-							    	'<ul class="mui-table-view mui-table-view-radio" style="font-size:11px;">'+
+							    	'<ul class="mui-table-view mui-table-view-radio models" style="font-size:11px;">'+
 										'<li class="mui-table-view-cell">'+
 										'<a class="mui-navigate-right">野马MUST 2.3T跑车/手自一体 舒适型/2.2614/299000.00</a>'+
 										'</li>'+
@@ -613,12 +613,12 @@
 						    '<div class="layui-tab-item">'+
 							    '<div class="offer_models">'+
 								    
-								    	'<ul class="mui-table-view mui-table-view-radio" style="font-size:11px;">'+
+								    	'<ul class="mui-table-view mui-table-view-radio vin" style="font-size:11px;">'+
 											'<li class="mui-table-view-cell">'+
-												'<a class="mui-navigate-right">野马MUST 2.3T跑车12312312</a>'+
+												'<a class="mui-navigate-right">野马MUST 2.3T跑车1</a>'+
 											'</li>'+
 											'<li class="mui-table-view-cell">'+
-												'<a class="mui-navigate-right">野马MUST 2.3T跑车12312312</a>'+
+												'<a class="mui-navigate-right">野马MUST 2.3T跑车2</a>'+
 											'</li>'+
 										'</ul>'+
 										
@@ -643,17 +643,29 @@
 				
 				layer.close(pageii);
 			});
-
-			var list = document.querySelector('.mui-table-view.mui-table-view-radio');
+			
+			
+			querySelector('models');
+			querySelector('vin');
+			function querySelector(selector)
+			{
+				var list = document.querySelector('.' + selector);
 				list.addEventListener('selected',function(e){
 					var detail = e.detail.el.innerText
 					document.getElementById('detail').value = detail;
 				});
+			}
+
 			mui(document.body).on('tap', '#button_model', function(e) {
 				var detail = document.getElementById('detail').value;
 				document.getElementById('car_info_vehicle').innerHTML = detail;
 				layer.close(pageii);
 			});
+			
+
+
+			
+			
 		});
 		
 		switch_item('tvdi_switch','tvdi_ndsi');
@@ -766,6 +778,10 @@
 					    document.getElementById(check_id).innerText = e;
 					});
 			  	}
+			  	else
+			  	{
+			  		document.getElementById(check_id).innerText = '';
+			  	}
 			});
 		}
 		
@@ -782,7 +798,7 @@
 		   		if(data.index == 0)
 		   		{
 		   			var model = document.getElementById('brand_model').innerHTML;
-		   			alert(model);
+/*		   			alert(model);*/
 		   			/****品牌型号AJAX请求接口*****/
 		   			
 
@@ -790,7 +806,7 @@
 		   		else if(data.index == 1)
 		   		{
 		   			var vin = document.getElementById('brand_vin').innerHTML;
-		   			alert(vin);
+/*		   			alert(vin);*/
 		   			/****车架号查询AJAX请求接口*****/
 		   		}
 			});
@@ -803,14 +819,38 @@
             };
 
 		
+		function layui_open(content)
+		{
+			layer.open({
+					  	content: content
+			});
+		}
+		
 		
             function SendPage(pageId, linkUrl, pageParam) {
-                mui.openWindow({//目标页面
+            	
+            	var vehicle = document.getElementById('car_info_vehicle').innerHTML;
+            	if(vehicle == '')
+            	{
+					layui_open("<font color ='#dd524d' size ='3'>报价车型不能为空！</font>");
+            	}
+
+				var myswitch = document.getElementById('mySwitch').innerText;
+				
+            	
+            	mui.openWindow({//目标页面
                     url: 'participant.html',
-                    id: 'participant.html',
-                    extras: param
-                });
+                    id: 'participant.html'
+               });
             }
+            
+            
+
+
+            	
+            
+            
+            
 		
 
 	
