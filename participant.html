@@ -8,6 +8,8 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/mui.picker.css" rel="stylesheet" />
 		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<link href="css/layer.css" rel="stylesheet" />
+		<link href="./layui/css/layui.css" rel="stylesheet" />
 	</head>
 
 	<body>
@@ -94,7 +96,7 @@
 								<form class="mui-input-group">
 								    <div class="mui-input-row">
 								        <label>车主姓名</label>
-								        <input type="text" class="mui-input-clear" placeholder="请输入车主姓名">
+								        <input type="text" class="mui-input-clear" placeholder="请输入车主姓名" id="owner_username">
 								    </div>
 								    
 								    <div class="mui-input-row owner">
@@ -105,7 +107,7 @@
 								    
 								   	<div class="mui-input-row">
 								        <label>证件号码</label>
-								        <input type="text" class="mui-input-clear" placeholder="请输入证件号码">
+								        <input type="text" class="mui-input-clear" placeholder="请输入证件号码" id="owner_idcard">
 								    </div>
 								</form>
 							</div>
@@ -115,7 +117,7 @@
 								<form class="mui-input-group">
 								    <div class="mui-input-row">
 								        <label>被保人姓名</label>
-								        <input type="text" class="mui-input-clear" placeholder="请输入被保人姓名">
+								        <input type="text" class="mui-input-clear" placeholder="请输入被保人姓名" id="insured_username">
 								    </div>
 								    
 								    <div class="mui-input-row applicant">
@@ -125,17 +127,17 @@
 								    
 								   	<div class="mui-input-row">
 								        <label>证件号码</label>
-								        <input type="text" class="mui-input-clear" placeholder="请输入证件号码">
+								        <input type="text" class="mui-input-clear" placeholder="请输入证件号码" id="insured_idcard">
 								    </div>
 								    
 								    <div class="mui-input-row">
 								        <label>手机号码</label>
-								        <input type="text" class="mui-input-clear" placeholder="请输入手机号码">
+								        <input type="text" class="mui-input-clear" placeholder="请输入手机号码" id="insured_phone">
 								    </div>
 								    
 								    <div class="mui-input-row">
 								        <label>邮箱地址</label>
-								        <input type="text" class="mui-input-clear" placeholder="请输入邮箱地址">
+								        <input type="text" class="mui-input-clear" placeholder="请输入邮箱地址" id="insured_email">
 								    </div>
 								</form>
 							</div>
@@ -147,15 +149,17 @@
 		
 			<div class="tab-center">
 				<div class="circle"> 
-					<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block">下一步</button>
+					<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block" onclick="SendPage()">下一步</button>
 				</div> 
 			</div>
 			
 		<script src="js/mui.min.js"></script>
 		<script src="js/mui.picker.js"></script>
 		<script src="js/mui.poppicker.js"></script>
+		<script src="js/layer.js"></script>
+		<script src="layui/layui.js"></script>
 		<script type="text/javascript">
-			mui.init()
+			
 				var garage_preuim =  new mui.PopPicker();
 			 	garage_preuim.setData([
 			 		{value:'0',text:'身份证'},
@@ -175,6 +179,105 @@
 					garage_preuim.value = selectItems[0].text
 				})
 			});
+			
+			function SendPage()
+			{
+				
+				
+				if(document.getElementById('owner_username').value == "")
+				{
+					layer.open({
+					  	content: '车主姓名不能为空'
+					});
+				}
+				
+				if(document.getElementById('owner_idcard').value == "")
+				{
+					layer.open({
+					  	content: '车主证件号码不能为空'
+					});
+					
+				}
+				else
+				{
+					if(document.getElementById('owner').value == '身份证')
+					{
+						var owner_idcard = document.getElementById('owner_idcard').value;
+						var regIdNo = /\d{8}[0-9 a-z]|\d{8}[-][0-9 a-z]|\d{15}$|^\d{18}$/;
+						if(!regIdNo.test(owner_idcard)){
+						  	alert('身份证格式填写有误');
+						  	return false;
+						}	
+					}
+					else if(document.getElementById('owner').value == '组织机构代码')
+					{
+						var owner_idcard = document.getElementById('owner_idcard').value;
+						var regIdNo = /^\d{8}(\d|X|x)/;
+						if(!regIdNo.test(owner_idcard)){
+						  	alert('组织机构代码填写有误');
+						  	return false;
+						}
+					}
+					
+				}
+				
+				if(document.getElementById('owner').value == "")
+				{
+					layer.open({
+					  	content: '车主证件类型不能为空'
+					});
+				}
+
+				if(document.getElementById('insured_username').value == "")
+				{
+					layer.open({
+					  	content: '被保险人姓名不能为空'
+					});
+				}
+				
+				if(document.getElementById('applicant').value == "")
+				{
+					layer.open({
+					  	content: '被保险人证件类型不能为空'
+					});
+				}
+				
+				if(document.getElementById('insured_idcard').value == "")
+				{
+					layer.open({
+					  	content: '被保险人证件号码不能为空'
+					});
+				}
+				
+				if(document.getElementById('insured_phone').value == "")
+				{
+					layer.open({
+					  	content: '被保险人手机号码不能为空'
+					});
+				}
+				
+				if(document.getElementById('insured_email').value == "")
+				{
+					layer.open({
+					  	content: '被保险人邮箱地址不能为空'
+					});
+				}
+
+				
+				
+	        	mui.openWindow({//目标页面
+	                url: 'calculate.html',
+	                id: 'calculate'
+	           	});
+				
+				
+				
+			}
+			
+			
+			
+			
+	
 			
 		</script>
 	</body>

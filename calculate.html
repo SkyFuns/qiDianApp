@@ -23,18 +23,24 @@
 				#border: 1px solid black;
 				float: left;
 				padding-left: 8px;
+				font-family: "微软雅黑";
+				font-weight: 550;
 			}
 			
 			.calculate{
 				
 				float: right;
 				padding-right: 20px;
+				font-family: "微软雅黑";
+				font-weight: 550;
 			}
 			
 			.insured{
 				
 				float: right;
 				padding-right: 20px;
+				font-family: "微软雅黑";
+				font-weight: 550;
 			}
 			
 			.item{
@@ -48,16 +54,17 @@
 			.item_info{
 				
 				width: 100%;
-				height: 50px;
+				height: 80px;
 				padding: 10px;
-				#border: 1px solid red;
+				padding-top: 10px;
+				padding-left: 10px;
 			}
 			
 			.line_1{
 				margin-top: 50px;
     			height:1px;
 				width:100%;
-				background:#3F3F3F;
+				background:#3f3f3f3b;
     		}
     		
     		.mui-checkbox{
@@ -65,8 +72,6 @@
     			float: right;
     			#margin-right: 30px;
     		}
-    		
-
     		
     		.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
     			color: #dd524d;
@@ -78,12 +83,24 @@
     			padding-top:15px;
     		}
     		
-    		.cpic_img{
+    		.item_ins{
     			
-/*    			width: 20px;
-    			height: 10px;*/
+    			font-size: 15px;
+    			font-family: "微软雅黑";
+
     			
     		}
+    		
+    		.circle { 
+                position: fixed; 
+                bottom: -10px; 
+                width: 100%;
+                height: 65px;
+                z-index: 99; 
+                opacity: 0.8;
+       	 	}
+    		
+
     		
     		
 			
@@ -93,15 +110,6 @@
 		<!-- 主界面不动、菜单移动 -->
 		<!-- 侧滑导航根容器 -->
 		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
-		  <!-- 菜单容器 -->
-		  <aside class="mui-off-canvas-left" id="offCanvasSide">
-		    <div class="mui-scroll-wrapper">
-		      <div class="mui-scroll">
-		        <!-- 菜单具体展示内容 -->
-		        
-		      </div>
-		    </div>
-		  </aside>
 		  <!-- 主页面容器 -->
 		  <div class="mui-inner-wrap">
 		    <!-- 主页面标题 -->
@@ -123,8 +131,9 @@
 		       		<div class="line_1"></div>
 		       		<div class="item">
 		        		<div class="item_info">
-			        		<span class="item_ins">太平洋车险</span>
-							<img src="images/cpic_logo.png" class="item_ins cpic_img"/>
+		        			<img class="item_ins cpic_img" src="images/cpic.jpg" width="80" height="50"/>
+			        		<span class="item_ins cpic">太平洋车险</span>
+							
 								<div class="mui-input-row mui-checkbox">
 	                            	<label></label>
     								<input name="checkbox1" value="Item 1" type="checkbox" checked>
@@ -134,17 +143,31 @@
     								<input name="checkbox1" value="Item 1" type="checkbox" checked>
 	                        	</div>
 						</div>
-						<!--<div class="line_1"></div>-->
+						
+						<div class="item_info">
+							<img class="item_ins cpic_img" src="images/picc.jpg" width="80" height="40"/>
+			        		<span class="item_ins">人保车险</span>
+							
+								<div class="mui-input-row mui-checkbox">
+	                            	<label></label>
+    								<input name="checkbox1" value="Item 1" type="checkbox" checked>
+	                        	</div>
+	                        	<div class="mui-input-row mui-checkbox">
+	                           		<label></label>
+    								<input name="checkbox1" value="Item 1" type="checkbox" checked>
+	                        	</div>
+						</div>
 					</div>
-		       		
-		       		
-		        
-		        
-		        
-		      </div>
+		      	</div>
 		    </div>  
 		    <div class="mui-off-canvas-backdrop"></div>
 		  </div>
+		</div>
+		
+		<div class="tab-center">
+			<div class="circle"> 
+				<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block" id="nextstep" onclick="SendPage()">提交报价</button>
+			</div> 
 		</div>
 		
 		
@@ -154,6 +177,16 @@
 		<script src="js/mui.min.js"></script>
 		<script type="text/javascript">
 			mui.init()
+			
+			function SendPage()
+			{
+				mui.openWindow({//目标页面
+                    url: 'accurate.html',
+                    id: 'accurate'
+               	});
+			}
+			
+			
 		</script>
 	</body>
 

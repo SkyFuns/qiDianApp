@@ -1,0 +1,532 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<link href="css/layer.css" rel="stylesheet" />
+		<link href="./layui/css/layui.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		
+		<style>
+			
+			.mui-title{
+				font-family: "微软雅黑";
+				
+				
+			}
+			.mui-bar-nav~.mui-content{
+				
+				font-size: 13px;
+				font-family: "微软雅黑";
+			}
+			
+			.top{
+				
+				widows: 100%;
+				height: 60px;
+				#border: 1px solid red;
+				padding:5px;
+			}
+			
+			.top_img{
+				
+				padding: 10px;
+			}
+			
+			.top_title{
+				
+				position: absolute;
+				margin-top: 15px;
+			}
+			.top_totleprice{
+				float: right;
+				margin-top: 15px;		
+				#color: #dd524d;
+				padding-right:10px
+			}
+			.price{
+				color: #dd524d;
+			}
+			.line_1{
+    			height:0.5px;
+				width:100%;
+				background:#C0C0C0;
+    		}
+    		
+    		.information{
+    			
+    			width: 100%;
+    			height: 120px;
+				padding: 16px 13px;
+    		}
+    		
+    		.information_key{
+    			display: block;	
+    		}
+    		
+    		.vehicle_info{
+    			
+    			width: 100%;
+    			height: 52px;
+				padding: 5px 7px;
+				display: block;
+    		}
+    		
+
+    		
+    		
+    		
+    		.mvtalci_insurance{
+    			height: 43px;
+    			padding: 13px 15px;
+
+    		}
+    		
+    		.business_insurance{
+    			
+    			height: 43px;
+    			padding: 13px 15px;
+    			
+    		}
+    		
+    		
+    		.total_amount{
+    			
+    			height: 43px;
+    			padding: 13px 15px;
+    		}
+    		
+    		.mvtalci_insurance_premium{
+    			float: right;
+    			
+    		}
+    		.business_insurance_premium{
+    			float: right;
+    			margin-right: 30px;
+    		}
+    		
+    		.total_amount_premium{
+    			float: right;
+    		}
+    		
+    		
+    		.business_insurance_premium.mui-icon{
+    			
+    			margin-right: -85px;
+    			margin-top: -2px;
+    			color: #dd524d;
+
+    			
+    		}
+    		
+			.mui-table-view{
+				
+				background-color: #efeff4;
+				
+			}
+			.mui-navigate-right{
+				height: 100%;
+				
+			}
+			
+			.mui-navigate-forehead{
+				
+				float: left;
+			}
+			
+			
+			.business_insurance_items{
+
+				height: 100%;
+				padding: 0px 15px;
+			}
+
+			.items_value{
+				float: right;
+			}
+			
+			.items{
+				
+				margin-top: 0px;
+				height: 40px;
+				padding-top: 14px;
+
+			}
+			
+			.calculator{
+				
+				width: 100%;
+				margin-left:auto;
+				margin-right:auto;
+				margin-top: 15px;
+				height: 270px;
+				border:1px solid #C0C0C0;
+				border-radius:15px;
+				-moz-border-radius:20px; /* Old Firefox */
+
+			}
+			
+			.calculator_title{
+				height: 30px;
+				background-color: #C0C0C0;
+				border-radius: 2px;
+				border-radius: 14px 12px 0px 0px;
+			}
+			
+			.calculator_title.font{
+				display: inline-block;
+				width:100%;
+				text-align:center;
+				padding: 6px 0px;
+			}
+			
+			
+			.premium_rate{
+				
+				width: 100%;
+				height: 50px;
+				margin-top: 15px;
+				padding: 5px 14px;
+			}
+
+			.rate_title{
+				
+				float: left;
+				margin: 8px 0px;
+
+			}
+			
+			
+			.insurance_status{
+				
+				height: 43px;
+    			padding: 13px 15px;
+			}
+			
+			.insurance_status_go{
+				
+				float: right;
+    			margin-right: 30px;
+				
+			}
+			
+			.mui-checkbox.mui-left input[type=checkbox], .mui-radio.mui-left input[type=radio]{
+				
+				left: 0px;
+				
+			}
+
+			
+			.mui-checkbox input[type=checkbox]:checked:before, .mui-radio input[type=radio]:checked:before{
+				color: #dd524d;
+			}
+			
+			.mui-checkbox.mui-left label, .mui-radio.mui-left label{
+				padding-left: 30px;
+			}
+			
+
+			
+		</style>
+
+		<!-- 主界面移动、菜单不动 -->
+		<div class="mui-off-canvas-wrap mui-draggable">
+		  <!-- 主页面容器 -->
+		  <div class="mui-inner-wrap">
+		    <!-- 主页面标题 -->
+		    <header class="mui-bar mui-bar-nav">
+		        <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		        <h1 class="mui-title">报价详情</h1>
+		    </header>
+		    
+		    <div class="mui-content mui-scroll-wrapper">
+		      <div class="mui-scroll">
+		        <!-- 主界面具体展示内容 -->
+		         	<div class="top">
+		         		<img src="./images/picc.jpg" width="50x" class="top_img" />
+		         		<span class="top_title">人保车险</span>
+		         		<span class="top_totleprice" style="color: #FF5053;">￥ <span id="totle_price">3261.93</span></span>
+		         	</div>
+		         	<div class="line_1"></div>
+		         	
+		         	<div class="information">
+		         		<span class="information_key">车牌号码：<span>苏A12345</span></span>
+		         		<span class="information_key">品牌型号：<span>东风雪铁龙DC7205DTC轿车</span></span>
+		         		<span class="information_key">折扣系数：<span>0.40122</span></span>
+		         		<span class="information_key">交强险起保时间：<span>2018-04-11 00:00:00</span></span>
+		         		<span class="information_key">商业险起保时间：<span>2018-04-11 00:00:00</span></span>
+		         	</div>
+		         	<div class="line_1"></div>
+		         	
+		         	<div class="vehicle_info">
+		         		<span class="vehicle_info result">东风雪铁龙DC7205DTC轿车/1.997/5/102800.0东风雪铁龙DC7205DTC轿车/1.997/5/102800.0</span>
+		         	</div>
+		         	<div class="line_1"></div>
+		         	
+		         	<div class="mvtalci_insurance" id="mvtalci_insurance">
+		         		<span>交强险</span>
+		         		<span class="mvtalci_insurance_premium price" id="mvtalci_insurance_premium_price" style="margin-right: 14px;">855.00</span><span style="float: right; margin-right: -55px; color: #dd524d;">元</span>
+		         	</div>
+		         	<div class="line_1"></div>
+		         	
+		         	<div class="mvtalci_insurance">
+		         		<span>车船税</span>
+		         		<span class="mvtalci_insurance_premium price">360.00元</span>
+		         	</div>
+		         	<div class="line_1"></div>
+					
+					<div class="business_insurance" id="business_insurance">
+		         		<span>商业险</span>
+		         		<span class="business_insurance_premium price" id="business_insurance_premium_price">2046.93</span><span style="float: right; margin-right: -64px; color: #dd524d;">元</span>
+		         		<span class="business_insurance_premium mui-icon mui-icon-arrowdown" id="totle"></span>
+		         	</div>
+					
+		         	
+		         	<div class="business_insurance_items" style="display: none;" id="business_insurance_items">
+		         		
+		         		<div class="items">
+		         			<span class="items_title">机动车损失保额(142789.00元)</span>
+		         			<span class="items_value price">1267.00元</span>
+		         		</div>
+						<div class="line_1"></div>
+		         		
+		         		<div class="items">
+		         			<span class="items_title">三者险(300000元)</span>
+		         			<span class="items_value price">1267.00元</span>
+		         		</div>
+						<div class="line_1"></div>
+						
+						
+						<div class="items">
+		         			<span class="items_title">司机座位险(10000元)</span>
+		         			<span class="items_value price">1267.00元</span>
+		         		</div>
+						<div class="line_1"></div>
+						
+						<div class="items">
+		         			<span class="items_title">不计免赔</span>
+		         			<span class="items_value price">267.00元</span>
+		         		</div>
+		         	</div>
+		         	<div class="line_1"></div>
+		         	<div class="total_amount" id="total_amount">
+		         		<span>保费总额</span>
+		         		<span class="total_amount_premium price">￥ 3261.78</span>
+		         	</div>
+					<div class="line_1"></div>
+		         	<div class="insurance_status" id="insurance_status">
+		         		<span>核保状态：<span>未勾选核保</span></span>
+		         		<span class="insurance_status_go underwriting" style="float: right; margin-right: 20px; color: #53a0ee;">去核保</span>
+		         		<span class="insurance_status_go mui-icon mui-icon-arrowright" style="float: right; margin-right: -63px; color: #53a0ee;"></span>
+		         	</div>
+		         	<div class="line_1"></div>
+
+		         	<div class="calculator">
+		         		<div class="calculator_title"><span class="calculator_title font">客户车险计算器</span></div>
+		         		<div class="premium_rate business" id="premium_rate_business">
+		         			<span class="premium rate_title">商业险优惠费率</span>
+		         			<input type="number" style="width: 60px; height: 35px; margin-left: 5px; border-radius:6px" id="business_preferential" />% * <a href="#" id="business_insurance_premium"></a></span>
+		         		</div>
+		         		
+		         		<div class="premium_rate mvtalci" id="premium_rate_mvtalci">
+		         			<span class="premium rate_title">交强险优惠费率</span>
+		         			<input type="number" style="width: 60px; height: 35px; margin-left: 5px; border-radius:6px" id="mvtalci_preferential"/>% * <a href="#" id="mvtalci_insurance_premium"></a></span>
+		         		</div>
+		         		
+		         		<div class="premium_rate tax" id="premium_rate_tax">
+		         			<div class="mui-input-row mui-checkbox mui-left" style="margin-top: -20px;">
+	                           	<label>去增值税税点</label>
+    							<input name="checkbox1" value="Item 1" type="checkbox" checked="" id="checkbox1">
+	                       </div>
+	                       <button type="button" class="mui-btn mui-btn-danger mui-btn-outlined" style="width: 160px; display: block; margin: 0px auto;" id="button_calculate">计算</button>
+		         		</div>
+
+		         		<div class="preferential" style="display:none; padding: 15px 15px;" id="preferential" >
+		         			<span class="business_percentage">优惠金额：￥ <span id="discount_amount">0</span></span>
+		         			<span class="business_preferential" style="float: right;">优惠价格: ￥ <span class="preferential_price" id="preferential_price">0</span></span>
+		         		</div>
+		         		
+		         		
+		         	</div>
+		      </div>
+		    </div> 
+		    <div class="mui-off-canvas-backdrop"></div>
+		  </div> 
+		</div>
+
+		<script src="js/mui.min.js"></script>
+
+		<script type="text/javascript">
+			
+			mui.init({
+			  pullRefresh : {
+			    container:".mui-content",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+			    down : {
+			      height:50,//可选,默认50.触发下拉刷新拖动距离,
+			      auto: false,//可选,默认false.首次加载自动下拉刷新一次
+			      contentdown : "下拉刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+			      contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+			      contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+			      callback :downFn //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+			    }
+			  }
+			});
+			
+			function downFn(){
+			
+				setTimeout(function () {  
+	
+	              mui('.mui-content').pullRefresh().endPulldownToRefresh(); //关闭顶部下拉  
+	          }, 1500);
+			}
+			var mvtalci_insurance = document.getElementById('mvtalci_insurance');
+			var business_insurance = document.getElementById('business_insurance');
+			var business_price = document.getElementById('business_insurance_premium_price');
+			var mvtalci_price = document.getElementById('mvtalci_insurance_premium_price');
+			var button_calculate = document. getElementById('button_calculate');
+
+			var mvtalci_insurance_premium_price = document.getElementById('mvtalci_insurance_premium_price');
+			var business_preferential = document.getElementById('business_preferential');
+			var mvtalci_preferential = document.getElementById('mvtalci_preferential');
+			var discount_amount = document.getElementById('discount_amount');
+			var preferential_price = document.getElementById('preferential_price');
+			var totle_price = document.getElementById('totle_price');
+			
+			if(mvtalci_price.innerHTML != "")
+			{
+				document.getElementById('mvtalci_insurance_premium').innerHTML =  mvtalci_price.innerHTML;
+				
+			}
+			else
+			{
+				mvtalci_insurance.style.display='none';
+				document.getElementById('premium_rate_mvtalci').style.display='none';
+			}
+			if(business_price.innerHTML != "")
+			{
+				document.getElementById('business_insurance_premium').innerHTML =  business_price.innerHTML;
+				
+			}
+			else
+			{
+				business_insurance.style.display='none';
+				document.getElementById('premium_rate_business').style.display='none';
+			}
+			
+			button_calculate.addEventListener("tap",function () {
+
+				if("undefined" != typeof business_preferential && business_preferential.value != "")
+				{
+					document.getElementById('preferential').style.display = 'block';
+					var business_discout_price = (business_price.innerHTML * (business_preferential.value/100)).toFixed(2);
+					
+					if(document.getElementById("checkbox1").checked)
+					{
+				    		discount_amount.innerHTML = (business_discout_price / 1.06).toFixed(2);
+				    		
+				    		preferential_price.innerHTML = (totle_price.innerHTML  - discount_amount.innerHTML).toFixed(2);
+					}
+					else
+					{
+						discount_amount.innerHTML = business_discout_price.toFixed(2);
+					}
+
+				}
+
+			});
+			
+
+			business_insurance.addEventListener("tap",function () {
+				var totle = document.getElementById('totle').className;
+				var business_insurance_items = document.getElementById('business_insurance_items');
+				
+				if(totle == 'business_insurance_premium mui-icon mui-icon-arrowup')
+				{
+					document.getElementById('totle').setAttribute('class','business_insurance_premium mui-icon mui-icon mui-icon-arrowdown')
+					business_insurance_items.style.display='none';
+				}
+				else
+				{
+					document.getElementById('totle').setAttribute('class','business_insurance_premium mui-icon mui-icon-arrowup')
+					business_insurance_items.style.display='block';
+				}
+
+			});
+			
+			
+
+			
+			
+			
+			
+			
+			
+			
+/*			business_preferential.addEventListener('input',function(){
+				
+				if(this.value != '')
+				{
+					document.getElementById('preferential').style.display = 'block';
+					var business_discout_price = (business_insurance_premium_price.innerHTML * (this.value/100)).toFixed(2);
+					
+
+					
+					
+					if(discount_amount.innerHTML != "" && discount_amount.innerHTML != 0)
+					{
+						var result = parseFloat(business_discout_price) + parseFloat(discount_amount.innerHTML);
+						if(document.getElementById("checkbox1").checked)
+						{
+					    		
+					    		discount_amount.innerHTML = (result / 1.06).toFixed(2);
+						}
+						else
+						{
+							discount_amount.innerHTML = result.toFixed(2);
+						}
+						
+						
+					}
+					else
+					{
+						discount_amount.innerHTML = business_discout_price.toFixed(2);	
+					}
+					
+				}
+				
+			});*/
+			
+			/*mvtalci_preferential.addEventListener('input',function(){
+
+				if(this.value != '')
+				{
+					
+					document.getElementById('preferential').style.display = 'block';
+					
+					var mvtalci_discout_price = (mvtalci_insurance_premium_price.innerHTML * (this.value/100)).toFixed(2);
+					discount_amount.innerHTML = mvtalci_discout_price;
+				}
+			});*/
+			
+
+			
+			/*if("undefined" != typeof business_discout_price && "undefined" != typeof mvtail_discout_price){ 
+			{
+				var discout_print = business_discout_price + mvtail_discout_price;
+				alert(discout_print)
+			}*/
+			
+		
+			
+			
+
+		</script>
+
+	</body>
+
+</html>
