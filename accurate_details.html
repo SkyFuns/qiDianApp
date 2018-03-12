@@ -427,13 +427,16 @@
 					
 					if(document.getElementById("checkbox1").checked)
 					{
+						
 				    		discount_amount.innerHTML = (business_discout_price / 1.06).toFixed(2);
 				    		
 				    		preferential_price.innerHTML = (totle_price.innerHTML  - discount_amount.innerHTML).toFixed(2);
 					}
 					else
 					{
-						discount_amount.innerHTML = business_discout_price.toFixed(2);
+
+						discount_amount.innerHTML = business_discout_price;
+						preferential_price.innerHTML = (totle_price.innerHTML  - business_discout_price).toFixed(2);
 					}
 
 				}
