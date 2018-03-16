@@ -9,11 +9,11 @@
 	</head>
 	<body>
 		<style>
-			
-			
-			
+
+
+
 			.mui-content.mui-scroll-wrapper{
-				
+
 				font-weight:400;
 				background-color: #EAEAEA;
 			}
@@ -23,91 +23,91 @@
 				background-color: #F2F2F2;
 				padding-top: 15px;
 			}
-			
+
 			.license{
 				padding: 10px;
 				font-size: 12px;
 				font-family: "微软雅黑";
 				margin-top: -10px;
-				
+
 			}
-			
+
 			.license.left{
-				
-				
+
+
 			}
-			
+
 			.license.right{
 				float: right;
-				
+
 			}
-			
+
 			.results{
 				margin-top: 15px;
 				background-color: #F2F2F2;
 				width: 100%;
 				height: 100%;
-				#border: 1px solid red;				
-				
-				
+				#border: 1px solid red;
+
+
 			}
 			.respectively{
 				height: 50px;
 				padding: 2px;
-				
+
 			}
-			
+
 			.respectively_img{
-				
-				width: 35px;
-				margin-left: 20px;
-				margin-top:5px;
+
+				width: 60px;
+				margin-left: 15px;
+				margin-top: 10px;
 			}
-			
-			
+
+
 			.respectively_title{
-				font-family: "微软雅黑";	
+				font-family: "微软雅黑";
 				position: absolute;
 				margin-left: 10px;
 				margin-top:12px;
 				font-size: 13px;
-				
+
 			}
-			
+
 			.respectively_price{
 				color: #5FB878;
 				margin-left:100px;
 				margin-top: 14px;
 				position: absolute;
 			}
-			
+
 			.mui-icon-arrowright{
 				margin-top: 11px;
 				float: right;
 				margin-right: -80px;
 				position: relative;
 			}
-			
+
 			.respectively_details{
 				float: right;
 				margin-right: 22px;
 				margin-top: 13px;
 				position: relative;
-				font-family: "微软雅黑";	
+				font-family: "微软雅黑";
 				font-size: 14px;
 			}
-			
+
 			.line_1{
     			height:0.5px;
 				width:100%;
 				background:#C0C0C0;
     		}
-			
-			
-			
-			
+
+
+
+
 		</style>
-		
+
 		<!-- 主界面不动、菜单移动 -->
 		<!-- 侧滑导航根容器 -->
 		<div class="mui-off-canvas-wrap mui-draggable mui-slide-in">
@@ -126,18 +126,18 @@
 		        		<span class="license left">车牌号</span>
 		        		<span class="license right">苏A12345</span>
 		        	</div>
-		        	
+
 		       		<div class="license">
 		        		<span class="license left">车主姓名</span>
 		        		<span class="license right">张三</span>
 		        	</div>
-		        	
-		        			        	
+
+
 		       		<div class="license">
 		        		<span class="license left">品牌型号</span>
 		        		<span class="license right">SGM7150ATA</span>
 		        	</div>
-		        	
+
 		        	<div class="license">
 		        		<span class="license left">交强险起保时间</span>
 		        		<span class="license right">2018-03-07 00:00:00</span>
@@ -148,12 +148,12 @@
 		        		<span class="license right">2018-03-07 00:00:00</span>
 		        	</div>
 		        </div>
-		        
-		        
+
+
 		        <div class="results">
-		        		
+
 		        		<div class="respectively picc" id="respectively_picc">
-		        			<img src="./images/picc.jpg"  class="respectively_img"/>
+		        			<img src="./images/picc.png"  class="respectively_img"/>
 		        			<span class="respectively_title">人保</span>
 		        			<span class="respectively_price">￥ 2779.91</span>
 		        			<span class="respectively_details">算价详情</span>
@@ -161,7 +161,7 @@
 		        		</div>
 		        		<div class="line_1"></div>
 		        		<div class="respectively cpic" id="respectively_cpic">
-		        			<img src="./images/cpic.jpg"  class="respectively_img"/>
+		        			<img src="./images/cpic.png"  class="respectively_img"/>
 		        			<span class="respectively_title">太平洋</span>
 		        			<span class="respectively_price">￥ 2779.91</span>
 		        			<span class="respectively_details">算价详情</span>
@@ -169,15 +169,15 @@
 		        		</div>
 		        </div>
 		      </div>
-		    </div>  
+		    </div>
 		    <div class="mui-off-canvas-backdrop"></div>
 		  </div>
 		</div>
-		
+
 		<script src="js/mui.min.js"></script>
-		
+
 		<script>
-			
+
 			mui.init({
 			  pullRefresh : {
 			    container:".mui-content",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
@@ -191,19 +191,19 @@
 			    }
 			  }
 			});
-			
+
 			function downFn(){
-			
-				setTimeout(function () {  
-	
-	              mui('.mui-content').pullRefresh().endPulldownToRefresh(); //关闭顶部下拉  
+
+				setTimeout(function () {
+
+	              mui('.mui-content').pullRefresh().endPulldownToRefresh(); //关闭顶部下拉
 	          }, 1500);
 			}
-			
-			
+
+
 			var vely_picc = document.getElementById('respectively_picc');
 			vely_picc.addEventListener("tap",function () {
-				
+
 				mui.openWindow({
 				    url:'accurate_details.html',
 				    id:'accurate_details',
@@ -226,15 +226,15 @@
 				      options:{}
 				    }
 				})
-				
-				
-				
+
+
+
 			});
-			
-			
+
+
 		</script>
-		
-		
+
+
 
 	</body>
 </html>
