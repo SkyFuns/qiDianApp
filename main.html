@@ -6,28 +6,30 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
     <link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
     <style>
-    	
-    	.mui-content-padded{
-    		margin: 26px;
-    	}
-    	
-    	.mui-segmented-control{
-    		border: none;
-    	}
-    	
-    	.mui-segmented-control .mui-control-item.mui-active {
-    		background-color: #dd524d;
-    		
-    	}
-    	.mui-segmented-control .mui-control-item {
-			color: #333;
-			border-left:none
-    	}
-    	
-    	
-    	
+
+      .mui-content-padded{
+        margin: 26px;
+      }
+
+      .mui-segmented-control{
+        border: none;
+      }
+
+      .mui-segmented-control .mui-control-item.mui-active {
+        background-color: #dd524d;
+
+      }
+      .mui-segmented-control .mui-control-item {
+      color: #333;
+      border-left:none
+      }
+
+      .mui-slider-group{
+        height: 350px;
+      }
+
     </style>
-    
+
 </head>
 <body>
     <!-- 缩放式侧滑（类手机QQ） -->
@@ -39,7 +41,7 @@
         <!-- 主页面标题 -->
 
         <nav class="mui-bar mui-bar-tab">
-        	
+
         	<a class="mui-tab-item" href="./index.html">
     	    	<span class="mui-icon mui-icon-home"></span>
     	        <span class="mui-tab-label">主页</span>
@@ -99,13 +101,13 @@
               </div>
             </div>
 
-           	<div class="mui-segmented-control">
-           	    <a class="mui-control-item mui-active" href="#item1">车牌号</a>
-           	    <a class="mui-control-item" href="#item2">发动机号，车架号</a>
-           	</div>
+            <div class="mui-segmented-control">
+                <a class="mui-control-item mui-active" href="#item1" id="license_a">车牌号</a>
+                <a class="mui-control-item" href="#item2" id="engine_a">发动机号，车架号</a>
+            </div>
 
           	<div id="slider" class="mui-slider">
-          	    <div class="mui-slider-group">  
+          	    <div class="mui-slider-group">
           	        <div id="item1" class="mui-slider-item mui-control-content mui-active">
 						<div class="mui-content">
 							<form id='login-form' class="mui-input-group">
@@ -113,7 +115,7 @@
 									<label>车牌号</label>
 									<input id='license' type="text" value= "川" class="mui-input-clear mui-input" placeholder="车牌号">
 								</div>
-								
+
 								<div class="mui-input-row">
 									<label>投保地区</label>
 									<input id='toubao' value ='四川' type="text" class="mui-input-clear mui-input" placeholder="">
@@ -126,7 +128,7 @@
 							<div class="mui-content-padded oauth-area">
 							</div>
 						</div>
-          	            
+
           	        </div>
           	        <div id="item2" class="mui-slider-item mui-control-content">
           	            <div class="mui-content">
@@ -155,9 +157,9 @@
           	        </div>
           	    </div>
           	</div>
-          	
+
           </div>
-        </div>  
+        </div>
         <div class="mui-off-canvas-backdrop"></div>
       </div>
     </div>
@@ -165,69 +167,77 @@
     <script type="text/javascript">
     mui.init()
     </script>
-    
+
     <script type="text/javascript">
-    	
-
-    	check_length('license','button_license');
-    	
-    	check_length('vin','button_vin');
-    	
-    	function check_length(id,button_id)
-    	{
-    			if(button_id == 'button_license')
-    			{
-	    			document.getElementById(id).addEventListener('input',function(){
-						if(this.value.length > 6 && this.value.length < 9 )
-						{
-							document.getElementById(button_id).disabled=false;
-						}
-						else
-						{
-							document.getElementById(button_id).disabled=true;
-						}
-						button_license.addEventListener("tap",function () {
-						  	mui.openWindow({
-						  				id:'detail',
-										url:'./detail.html',
-							});
-						});
-					});
-    			}
-    			else if(button_id == 'button_vin')
-    			{
-    				document.getElementById(id).addEventListener('input',function(){
-						if(this.value.length == 17)
-						{
-							document.getElementById(button_id).disabled=false;
-						}
-						else
-						{
-							document.getElementById(button_id).disabled=true;
-						}
-						button_vin.addEventListener("tap",function () {
-						  	mui.openWindow({
-						  				id:'detail',
-										url:'./detail.html',
-							});
-						});
-					});
-    			}
-    	}
-    	
-    	
 
 
-		
-		
+      check_length('license','button_license');
+
+      check_length('vin','button_vin');
+
+      function check_length(id,button_id)
+      {
+          if(button_id == 'button_license')
+          {
+            document.getElementById(id).addEventListener('input',function(){
+            if(this.value.length > 6 && this.value.length < 9 )
+            {
+              document.getElementById(button_id).disabled=false;
+            }
+            else
+            {
+              document.getElementById(button_id).disabled=true;
+            }
+            button_license.addEventListener("tap",function () {
+                mui.openWindow({
+                      id:'detail',
+                      url:'detail.html',
+              });
+            });
+          });
+          }
+          else if(button_id == 'button_vin')
+          {
+            document.getElementById(id).addEventListener('input',function(){
+            if(this.value.length == 17)
+            {
+              document.getElementById(button_id).disabled=false;
+            }
+            else
+            {
+              document.getElementById(button_id).disabled=true;
+            }
+            button_vin.addEventListener("tap",function () {
+                mui.openWindow({
+                      id:'detail',
+                      url:'detail',
+              });
+            });
+          });
+          }
+      }
+
+
+      document.getElementById('item1').addEventListener("swipeleft",function(){
+          document.getElementById('engine_a').className = 'mui-control-item mui-active';
+          document.getElementById('license_a').className = 'mui-control-item';
+      });
+
+      document.getElementById('item2').addEventListener("swiperight",function(){
+          document.getElementById('engine_a').className = 'mui-control-item';
+          document.getElementById('license_a').className = 'mui-control-item mui-active';
+      });
+
+
+
 		mui(document.body).on('tap', '.mui-btn', function(e) {
 		    mui(this).button('loading');
 		    setTimeout(function() {
 		        mui(this).button('reset');
 		    }.bind(this), 2000);
 		});
-    	
+
     </script>
-    
+
 </body>
 </html>
