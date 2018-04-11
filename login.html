@@ -6,9 +6,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>登录</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<!--[if IE]>
-		<script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
-	<![endif]-->
 	<style type="text/css">
 		body{
 			margin:0;
@@ -30,7 +27,7 @@
 			max-width:525px;
 			position: relative;
 			min-height:815px;
-			background:url(./images/bg.jpg) no-repeat center;
+			#background:url(./images/bg.jpg) no-repeat center;
 			box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 			background-size: 100% 100%;
 		}
@@ -39,7 +36,7 @@
 			height:100%;
 			position:absolute;
 			padding:90px 70px 50px 70px;
-			background:rgba(40,57,101,.9);
+			background:rgba(255, 255, 255, 0.9);
 		}
 		.login-html .sign-in-htm,
 		.login-html .sign-up-htm{
@@ -75,8 +72,8 @@
 		}
 		.login-html .sign-in:checked + .tab,
 		.login-html .sign-up:checked + .tab{
-			color:#fff;
-			border-color:#1161ee;
+			color:#dd524d;
+			border-color:#dd524d;
 		}
 		.login-form{
 			min-height:345px;
@@ -101,7 +98,7 @@
 			border:none;
 			padding:15px 20px;
 			border-radius:25px;
-			background:rgba(255,255,255,.1);
+			background:rgba(80, 80, 80, 0.1);
 		}
 		.login-form .group input[data-type="password"]{
 			text-security:circle;
@@ -112,7 +109,9 @@
 			font-size:12px;
 		}
 		.login-form .group .button{
-			background:#1161ee;
+			background:#dd524d;
+			opacity:0.8;
+			font-family: "微软雅黑";
 		}
 		.login-form .group label .icon{
 			width:15px;
@@ -148,10 +147,10 @@
 			        transform:scale(0) rotate(0);
 		}
 		.login-form .group .check:checked + label{
-			color:#fff;
+			color:#e47d79;
 		}
 		.login-form .group .check:checked + label .icon{
-			background:#1161ee;
+			background:#e47d79;
 		}
 		.login-form .group .check:checked + label .icon:before{
 			-webkit-transform:scale(1) rotate(45deg);
@@ -182,31 +181,36 @@
 		.foot-lnk{
 			text-align:center;
 		}
+
+		.input{
+			caret-color: #dd524d;
+		    font-family: "微软雅黑";
+		}
 	</style>
 </head>
 <body>
 	<div class="jq22-container">
 		<div class="login-wrap">
 			<div class="login-html">
-				<img src="./images/qdlogo.ico">
+				<img src="./images/qdlogo.ico" style="width: 30px;height: 30px;margin-top: -53px;position: absolute;">
 				<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">登录</label>
 				<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">注册</label>
 				<div class="login-form">
 					<div class="sign-in-htm">
 						<div class="group">
 							<label for="user" class="label">用户名</label>
-							<input id="user" type="text" class="input">
+							<input id="user" type="text" class="input" style="color: #dd524d;">
 						</div>
 						<div class="group">
 							<label for="pass" class="label">密码</label>
-							<input id="pass" type="password" class="input" data-type="password">
+							<input id="pass" type="password" class="input" data-type="password" style="color: #dd524d;">
 						</div>
 						<div class="group">
 							<input id="check" type="checkbox" class="check" checked>
 							<label for="check"><span class="icon"></span>记住密码</label>
 						</div>
 						<div class="group">
-							<input type="submit" class="button" value="Sign In">
+							<input type="submit" class="button" value="登录">
 						</div>
 						<div class="hr"></div>
 						<div class="foot-lnk">
@@ -216,22 +220,22 @@
 					<div class="sign-up-htm">
 						<div class="group">
 							<label for="user" class="label">用户名</label>
-							<input id="user" type="text" class="input">
+							<input id="user" type="text" class="input" style="color: #dd524d;">
 						</div>
 						<div class="group">
 							<label for="pass" class="label">密码</label>
-							<input id="pass" type="password" class="input" data-type="password">
+							<input id="pass" type="password" class="input" data-type="password" style="color: #dd524d;">
 						</div>
 						<div class="group">
 							<label for="pass" class="label">确认密码</label>
-							<input id="pass" type="password" class="input" data-type="password">
+							<input id="pass" type="password" class="input" data-type="password" style="color: #dd524d;">
 						</div>
 						<div class="group">
 							<label for="pass" class="label">邮件</label>
-							<input id="pass" type="text" class="input">
+							<input id="pass" type="text" class="input" style="color: #dd524d;">
 						</div>
 						<div class="group">
-							<input type="submit" class="button" value="Sign Up">
+							<input type="submit" class="button" value="注册">
 						</div>
 						<div class="hr"></div>
 						<div class="foot-lnk">
@@ -242,6 +246,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

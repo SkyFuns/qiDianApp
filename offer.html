@@ -310,8 +310,8 @@
           }
 
           .item_infos div{
-		width:100%;
-            	margin: 10px 0px;
+          	width: 100%;
+            margin: 18px 0px;
           }
 
 
@@ -331,7 +331,9 @@
      	}
      	.layui-m-layerchild.layui-m-anim-up{
      		background-color: #f6f6f6;
+     		overflow: scroll;
      	}
+
 
 		</style>
 	</head>
@@ -1053,8 +1055,6 @@
 	      	var item_mvlinftpsis = ave_items('MVLINFTPSI');
 
 
-
-
 	      if(item_tvdis == "" && item_ttblis == "" && item_tcpli_drivers == "" && item_tcpli_passengers == "" && item_twcdmvis == "" && item_bsdis == "" && item_solis == "" && item_bgais == ""  && item_vwtlis == "" && item_stsfs == "" && item_rdccis == "" &&  item_mvlinftpsis == "")
 	      {
 	          layui_open('已经选择了全险种');
@@ -1078,16 +1078,16 @@
 	                  	item_mvlinftpsis+
 	                '</div>'+
 	                '<div class="tab-center">'+
-	                '<div class="confirm_model">'+
+	                
+	                '</div><div class="confirm_model" style = "position:relative">'+
 	                  '<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block" id="button_items">确认险种</button>'+
-	                '</div>'+
 	                '</div></div><input type="hidden" id ="detail">';
 
 	    	var itiems = layer.open({
-	    		  type: 1,
-	          anim: 'up',
-				  	content: str,
-	          style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;'
+	    		  	type: 1,
+	          		anim: 'up',
+					content: str,
+	          		style: 'position:fixed; left:0; top:0; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;'
 			});
 
 	        mui(document.body).on('tap', '#button_items', function(e) {
