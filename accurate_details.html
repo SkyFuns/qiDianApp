@@ -26,7 +26,6 @@
 			}
 
 			.mui-scroll{
-				height: 800px;
 				font-size: 13px;
 				background-color: #F7F7F7;
 			}
@@ -322,7 +321,7 @@
 		    </header>
 
 		    <div class="mui-content mui-scroll-wrapper">
-		      <div class="mui-scroll">
+		      <div class="mui-scroll" id="mui-scroll">
 		        <!-- 主界面具体展示内容 -->
 		         	<div class="top">
 		         		<img src="./images/picc.png"  class="top_img" />
@@ -430,30 +429,33 @@
 		         			<span class="business_preferential" style="float: right;">优惠价格: ￥ <span class="preferential_price" id="preferential_price">0</span></span>
 		         		</div>
 		         	</div>
+
+		         	<div class="tab-center" style="margin-top: 40px;">
+						<div class="add_quotation">
+							<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block quotation" id="nextstep" onclick="SendPage()"><span class="mui-icon mui-icon-compose"></span>跟进记录</button>
+						</div>
+						<div class="send_message">
+							<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block quotation" id="nextstep" onclick="SendPage()"><span class="mui-icon mui-icon-email"></span>发送短信</button>
+						</div>
+						<div class="send_weixin">
+
+							<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block quotation" id="nextstep" onclick="SendPage()"><span class="mui-icon mui-icon-weixin"></span>微信</button>
+						</div>
+						<div class="insured">
+							<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block offer" id="nextstep" onclick="SendPage()">申请投保</button>
+						</div>
+						<div class="circle">
+							<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block offer" id="nextstep" onclick="SendPage()">重新报价</button>
+						</div>
+					</div>
+
 		      </div>
 		    </div>
 		    <div class="mui-off-canvas-backdrop"></div>
 		  </div>
 		</div>
 
-		<div class="tab-center">
-			<div class="add_quotation">
-				<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block quotation" id="nextstep" onclick="SendPage()"><span class="mui-icon mui-icon-compose"></span>跟进记录</button>
-			</div>
-			<div class="send_message">
-				<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block quotation" id="nextstep" onclick="SendPage()"><span class="mui-icon mui-icon-email"></span>发送短信</button>
-			</div>
-			<div class="send_weixin">
 
-				<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block quotation" id="nextstep" onclick="SendPage()"><span class="mui-icon mui-icon-weixin"></span>微信</button>
-			</div>
-			<div class="insured">
-				<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block offer" id="nextstep" onclick="SendPage()">申请投保</button>
-			</div>
-			<div class="circle">
-				<button type="button" data-loading-icon="mui-spinner mui-spinner-custom" class="mui-btn mui-btn-danger mui-btn-block offer" id="nextstep" onclick="SendPage()">重新报价</button>
-			</div>
-		</div>
 
 		<script src="js/mui.min.js"></script>
 		<script src="js/layer.js"></script>
@@ -591,6 +593,7 @@
 				{
 					document.getElementById('totle').setAttribute('class','business_insurance_premium mui-icon mui-icon-arrowdown')
 					business_insurance_items.style.display='none';
+					document.getElementById('mui-scroll').style.transform = 'translate3d(0px, 0px, 0px) translateZ(0px)';
 				}
 				else
 				{
